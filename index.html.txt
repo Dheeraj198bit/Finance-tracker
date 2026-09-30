@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Finance Dashboard</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#111827;
+    color:white;
+    padding:15px;
+}
+
+.container{
+    max-width:500px;
+    margin:auto;
+}
+
+.header{
+    background:#1F2937;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+.header h1{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.summary{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.card{
+    background:#374151;
+    padding:12px;
+    border-radius:12px;
+}
+
+.card h3{
+    font-size:14px;
+    color:#cbd5e1;
+}
+
+.card p{
+    margin-top:5px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.section-title{
+    margin:20px 0 10px;
+    font-size:18px;
+}
+
+.category-card{
+    background:#1F2937;
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:10px;
+}
+
+.progress{
+    width:100%;
+    height:10px;
+    background:#374151;
+    border-radius:10px;
+    margin-top:10px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    background:#22c55e;
+}
+
+.form-box{
+    background:#1F2937;
+    padding:15px;
+    border-radius:15px;
+}
+
+input,select{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    background:#374151;
+    color:white;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.transaction{
+    background:#1F2937;
+    padding:12px;
+    border-radius:12px;
+    margin-top:10px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:#1F2937;
+    display:flex;
+    justify-content:space-around;
+    padding:12px;
+    border-top:1px solid #374151;
+}
+
+.nav-item{
+    text-align:center;
+    color:white;
+    font-size:14px;
+}
+
+.dark-toggle{
+    float:right;
+    cursor:pointer;
+}
+
+.light-mode{
+    background:#f3f4f6;
+    color:#111827;
+}
+
+.light-mode .header,
+.light-mode .category-card,
+.light-mode .form-box,
+.light-mode .transaction{
+    background:white;
+    color:#111827;
+}
+
+.light-mode .card{
+    background:#e5e7eb;
+}
+
+.light-mode input,
+.light-mode select{
+    background:#f3f4f6;
+    color:#111827;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+<span class="dark-toggle" onclick="toggleTheme()">🌙</span>
+
+<h1>My Finance Dashboard</h1>
+
+<div class="summary">
+
+<div class="card">
+<h3>Salary</h3>
+<p>AED 10,000</p>
+</div>
+
+<div class="card">
+<h3>Remaining</h3>
+<p>AED 5,250</p>
+</div>
+
+<div class="card">
+<h3>Savings</h3>
+<p>AED 2,000</p>
+</div>
+
+<div class="card">
+<h3>Spent</h3>
+<p>AED 2,750</p>
+</div>
+
+</div>
+</div>
+
+<h2 class="section-title">Categories</h2>
+
+<div class="category-card">
+<h3>🚗 Car</h3>
+<p>AED 800 Remaining</p>
+<div class="progress">
+<div class="progress-bar" style="width:80%"></div>
+</div>
+</div>
+
+<div class="category-card">
+<h3>⛽ Fuel</h3>
+<p>AED 250 Remaining</p>
+<div class="progress">
+<div class="progress-bar" style="width:50%"></div>
+</div>
+</div>
+
+<div class="category-card">
+<h3>🏠 Home</h3>
+<p>AED 2,000 Remaining</p>
+<div class="progress">
+<div class="progress-bar" style="width:100%"></div>
+</div>
+</div>
+
+<div class="category-card">
+<h3>💰 Savings</h3>
+<p>AED 2,000 Remaining</p>
+<div class="progress">
+<div class="progress-bar" style="width:100%"></div>
+</div>
+</div>
+
+<h2 class="section-title">Quick Expense</h2>
+
+<div class="form-box">
+
+<select>
+<option>Fuel</option>
+<option>Car</option>
+<option>Home</option>
+<option>Savings</option>
+</select>
+
+<input type="number" placeholder="Amount">
+
+<input type="text" placeholder="Description">
+
+<button>Add Expense</button>
+
+</div>
+
+<h2 class="section-title">Recent Transactions</h2>
+
+<div class="transaction">
+<span>⛽ Fuel - Petrol</span>
+<span>-100 AED</span>
+</div>
+
+<div class="transaction">
+<span>🚗 Car - Service</span>
+<span>-250 AED</span>
+</div>
+
+<div class="transaction">
+<span>🏠 Home - Grocery</span>
+<span>-500 AED</span>
+</div>
+
+</div>
+
+<div class="bottom-nav">
+<div class="nav-item">🏠<br>Home</div>
+<div class="nav-item">💳<br>Expenses</div>
+<div class="nav-item">📊<br>Reports</div>
+<div class="nav-item">⚙️<br>Settings</div>
+</div>
+
+<script>
+function toggleTheme(){
+document.body.classList.toggle("light-mode");
+}
+</script>
+
+</body>
+</html>
